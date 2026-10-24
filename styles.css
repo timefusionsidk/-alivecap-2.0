@@ -1,0 +1,182 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * alivecap design system.
+ * Warm, cinematic, film-inspired. Deep ink background with a rose-gold accent,
+ * generous radii, and event-themable primary/accent driven by CSS variables.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  /* Warm off-white paper */
+  --background: oklch(0.985 0.008 80);
+  --foreground: oklch(0.18 0.02 40);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 40);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 40);
+  /* Rose-gold primary */
+  --primary: oklch(0.66 0.13 30);
+  --primary-foreground: oklch(0.99 0.005 80);
+  --secondary: oklch(0.95 0.01 60);
+  --secondary-foreground: oklch(0.22 0.02 40);
+  --muted: oklch(0.94 0.01 70);
+  --muted-foreground: oklch(0.45 0.02 50);
+  --accent: oklch(0.72 0.15 55);
+  --accent-foreground: oklch(0.15 0.02 40);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.01 60);
+  --input: oklch(0.92 0.01 60);
+  --ring: oklch(0.66 0.13 30 / 0.5);
+  --ink: oklch(0.16 0.02 40);
+  --ink-foreground: oklch(0.98 0.008 80);
+  --chart-1: oklch(0.66 0.13 30);
+  --chart-2: oklch(0.72 0.15 55);
+  --chart-3: oklch(0.55 0.08 200);
+  --chart-4: oklch(0.7 0.14 140);
+  --chart-5: oklch(0.5 0.15 300);
+  --sidebar: oklch(0.99 0.005 80);
+  --sidebar-foreground: oklch(0.18 0.02 40);
+  --sidebar-primary: oklch(0.66 0.13 30);
+  --sidebar-primary-foreground: oklch(0.99 0.005 80);
+  --sidebar-accent: oklch(0.95 0.01 60);
+  --sidebar-accent-foreground: oklch(0.22 0.02 40);
+  --sidebar-border: oklch(0.9 0.01 60);
+  --sidebar-ring: oklch(0.66 0.13 30 / 0.5);
+  /* Themable per-event overrides (JS sets these on :root) */
+  --event-primary: var(--primary);
+  --event-accent: var(--accent);
+  /* Motion + surfaces */
+  --shadow-elegant: 0 20px 60px -20px oklch(0.2 0.02 40 / 0.25);
+  --gradient-hero: radial-gradient(1200px 600px at 10% -10%, oklch(0.72 0.15 55 / 0.35), transparent 60%),
+                   radial-gradient(900px 500px at 100% 0%, oklch(0.66 0.13 30 / 0.25), transparent 60%);
+}
+
+.dark {
+  --background: oklch(0.16 0.02 40);
+  --foreground: oklch(0.98 0.008 80);
+  --card: oklch(0.2 0.02 40);
+  --card-foreground: oklch(0.98 0.008 80);
+  --popover: oklch(0.2 0.02 40);
+  --popover-foreground: oklch(0.98 0.008 80);
+  --primary: oklch(0.72 0.14 30);
+  --primary-foreground: oklch(0.16 0.02 40);
+  --secondary: oklch(0.24 0.02 40);
+  --secondary-foreground: oklch(0.98 0.008 80);
+  --muted: oklch(0.24 0.02 40);
+  --muted-foreground: oklch(0.72 0.02 60);
+  --accent: oklch(0.75 0.15 55);
+  --accent-foreground: oklch(0.16 0.02 40);
+  --destructive: oklch(0.7 0.19 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.12);
+  --ring: oklch(0.72 0.14 30 / 0.6);
+  --ink: oklch(0.1 0.02 40);
+  --ink-foreground: oklch(0.98 0.008 80);
+  --sidebar: oklch(0.18 0.02 40);
+  --sidebar-foreground: oklch(0.98 0.008 80);
+  --sidebar-primary: oklch(0.72 0.14 30);
+  --sidebar-primary-foreground: oklch(0.16 0.02 40);
+  --sidebar-accent: oklch(0.24 0.02 40);
+  --sidebar-accent-foreground: oklch(0.98 0.008 80);
+  --sidebar-border: oklch(1 0 0 / 0.08);
+  --sidebar-ring: oklch(0.72 0.14 30 / 0.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+}
+
+@utility bg-hero {
+  background-image: var(--gradient-hero);
+}
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+
+/* Mobile-only shell: neutral backdrop behind the phone-width app frame. */
+@utility app-backdrop {
+  background-color: var(--color-background);
+}
+@media (min-width: 480px) {
+  .app-backdrop {
+    background-color: var(--color-ink);
+    background-image: var(--gradient-hero);
+  }
+}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    overscroll-behavior-y: none;
+    overflow-x: hidden;
+  }
+}
